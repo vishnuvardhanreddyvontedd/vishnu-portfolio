@@ -1,65 +1,98 @@
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowUpRight, CodeIcon } from "./components/icons";
+import { projects, skills } from "./data/portfolio";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <>
+      <section className="hero shell">
+        <div className="hero-copy">
+          <p className="eyebrow"><span className="pulse" /> Available for full-time opportunities</p>
+          <h1>
+            I build digital products that <em>work beautifully.</em>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="hero-intro">
+            I&apos;m <strong>Vishnu Vardhan Reddy Vonteddu</strong>, a Full Stack Developer turning complex workflows
+            into fast, reliable mobile and web experiences. Proficient across front-end and back-end ecosystems.
           </p>
+          <div className="button-row">
+            <Link className="button button-primary" href="/projects">
+              Explore my work <ArrowUpRight />
+            </Link>
+            <a className="button button-quiet" href="/vishnu-vardhan-reddy-resume.pdf" target="_blank">
+              View resume
+            </a>
+          </div>
+          <dl className="hero-stats">
+            <div className="stat-card"><dt>4</dt><dd>Production products</dd></div>
+            <div className="stat-card"><dt>8+</dt><dd>Months of experience</dd></div>
+            <div className="stat-card"><dt>2</dt><dd>Platforms: web & mobile</dd></div>
+          </dl>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+
+        <div className="portrait-wrap">
+          <div className="portrait-frame">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+              src="/vishnu-vardhan-reddy.jpg"
+              alt="Vishnu Vardhan Reddy Vonteddu"
+              fill
+              priority
+              sizes="(max-width: 800px) 88vw, 36vw"
+              className="portrait"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </div>
+          <div className="floating-note">
+            <span className="note-icon"><CodeIcon /></span>
+            <span><strong>Full Stack Developer</strong>Flutter · React · Next.js</span>
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      <section className="section shell">
+        <div className="section-heading">
+          <div>
+            <p className="kicker">Selected work</p>
+            <h2>Products built for the real world.</h2>
+          </div>
+          <Link className="text-link" href="/projects">View all projects <ArrowUpRight /></Link>
+        </div>
+        <div className="project-grid">
+          {projects.slice(0, 2).map((project, index) => (
+            <Link href="/projects" className={`project-card project-${index + 1} group`} key={project.title}>
+              <div className="project-number">0{index + 1}</div>
+              <div className="project-content">
+                <p className="project-type">{project.type}</p>
+                <h3 className="flex items-center gap-1">
+                  {project.title}
+                  <span className="inline-block transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">
+                    <ArrowUpRight />
+                  </span>
+                </h3>
+                <p>{project.shortDescription}</p>
+                <div className="tag-list">
+                  {project.tech.slice(0, 4).map((tech) => <span key={tech}>{tech}</span>)}
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="section shell skills-preview">
+        <div>
+          <p className="kicker">My toolkit</p>
+          <h2>From interface to infrastructure.</h2>
+          <p className="section-copy">
+            I work across the stack, with a particular love for thoughtful
+            interfaces, reliable data flows, and products that feel effortless.
+          </p>
+          <Link className="text-link" href="/about">More about me <ArrowUpRight /></Link>
+        </div>
+        <div className="skill-cloud">
+          {skills.slice(0, 12).map((skill) => <span key={skill}>{skill}</span>)}
+        </div>
+      </section>
+    </>
   );
 }
