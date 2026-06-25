@@ -672,3 +672,27 @@ h1, h2, h3, p { overflow-wrap: anywhere; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }
+
+/* Interactive Terminal Cards & Suggestions Hover States */
+.terminal-nav-card {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.terminal-nav-card:hover {
+  background: #27c93f !important;
+  border-color: #27c93f !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(39, 201, 63, 0.2);
+}
+.terminal-nav-card:hover span {
+  color: #000000 !important;
+}
+
+.terminal-suggest-btn {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.terminal-suggest-btn:hover {
+  background: #4ade80 !important;
+  color: #000000 !important;
+  border-color: #4ade80 !important;
+  transform: translateY(-1px);
+}
