@@ -13,6 +13,8 @@
   --glow: rgba(217, 79, 53, 0.1);
   --header-bg: rgba(243, 241, 234, 0.85);
   --input-bg: rgba(255, 255, 255, 0.4);
+  --footer-bg: #171714;
+  --contact-bg: #171714;
 }
 
 :root[data-theme="dark"],
@@ -29,6 +31,8 @@
   --glow: rgba(255, 110, 84, 0.15);
   --header-bg: rgba(11, 11, 10, 0.85);
   --input-bg: rgba(20, 20, 18, 0.6);
+  --footer-bg: #131311;
+  --contact-bg: #131311;
 }
 
 @theme inline {
@@ -282,7 +286,7 @@ h1, h2, h3, p { overflow-wrap: anywhere; }
 .contact-wrap h1 { margin: 0; max-width: 700px; font-size: clamp(3.6rem, 8vw, 7.5rem); line-height: .9; letter-spacing: -.075em; }
 .contact-wrap h1 em { font-family: Georgia, serif; color: var(--accent); font-weight: 500; }
 .contact-copy { max-width: 600px; color: var(--muted); font-size: 1.15rem; margin: 30px 0; }
-.contact-card { padding: 36px; background: var(--ink); color: white; border-radius: 20px; box-shadow: 0 30px 70px rgba(23,23,20,.18); }
+.contact-card { padding: 36px; background: var(--contact-bg); color: white; border-radius: 20px; box-shadow: 0 30px 70px rgba(23,23,20,.18); }
 .contact-card > p { margin-top: 0; color: #aaa9a4; }
 .contact-link { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding: 19px 0; border-top: 1px solid rgba(255,255,255,.15); }
 .contact-link span { color: #aaa9a4; font: 500 11px "Geist Mono", monospace; text-transform: uppercase; letter-spacing: .1em; }
@@ -362,7 +366,7 @@ h1, h2, h3, p { overflow-wrap: anywhere; }
   line-height: 1.5;
 }
 
-.site-footer { padding: 50px 0 30px; background: var(--ink); color: white; }
+.site-footer { padding: 50px 0 30px; background: var(--footer-bg); color: white; }
 .footer-main { display: flex; align-items: center; justify-content: space-between; gap: 30px; padding-bottom: 48px; }
 .footer-main h2 { margin: 0; max-width: 620px; font-size: clamp(2.1rem, 5vw, 4.2rem); line-height: 1; letter-spacing: -.06em; }
 .footer-main h2 em { color: var(--yellow); font-family: Georgia, serif; font-weight: 500; }
