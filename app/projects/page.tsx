@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { projects } from "../data/portfolio";
+import { ProjectConsoleCard } from "./project-console-card";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -16,33 +17,9 @@ export default function ProjectsPage() {
           <p className="page-lead">Products shaped around real users, real constraints, and the less glamorous edge cases that decide whether software truly works.</p>
         </div>
       </section>
-      <section className="section shell projects-list">
+      <section className="section shell projects-list" style={{ gap: "32px" }}>
         {projects.map((project, index) => (
-          <article className="project-detail" key={project.title}>
-            <div className={`project-visual ${project.color}`}>
-              <span>PROJECT 0{index + 1} · {project.type}</span>
-              <strong>{project.title}</strong>
-            </div>
-            <div className="project-detail-content">
-              <div className="project-header-row">
-                <h2>{project.description}</h2>
-                <div className="project-status">
-                  {(project.title === "Campout" || project.title === "GateFlow") ? (
-                    <span className="badge badge-production">Siris Apps Production</span>
-                  ) : project.title === "TechTrack" ? (
-                    <span className="badge badge-academic">Key Project</span>
-                  ) : (
-                    <span className="badge badge-academic">Academic System</span>
-                  )}
-                </div>
-              </div>
-              <p>{project.shortDescription}</p>
-              <ul className="feature-list">
-                {project.features.map((feature) => <li key={feature}>{feature}</li>)}
-              </ul>
-              <div className="tag-list">{project.tech.map((tech) => <span key={tech}>{tech}</span>)}</div>
-            </div>
-          </article>
+          <ProjectConsoleCard key={project.title} project={project} index={index} />
         ))}
       </section>
     </>

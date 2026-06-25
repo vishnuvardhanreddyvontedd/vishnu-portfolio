@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { skillGroups } from "../data/portfolio";
+import { SkillsExplorer } from "./skills-explorer";
 
 export const metadata: Metadata = {
   title: "About",
@@ -47,16 +47,7 @@ export default function AboutPage() {
 
       <section className="section shell content-grid">
         <div className="aside-label">Technical toolkit</div>
-        <div className="skills-groups">
-          {skillGroups.map((group) => (
-            <article className="skill-group" key={group.title}>
-              <h3>{group.title}</h3>
-              <div className="tag-list">
-                {group.items.map((item) => <span key={item}>{item}</span>)}
-              </div>
-            </article>
-          ))}
-        </div>
+        <SkillsExplorer />
       </section>
     </>
   );

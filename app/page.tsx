@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, CodeIcon } from "./components/icons";
 import { projects, skills } from "./data/portfolio";
+import { Terminal } from "./components/terminal";
 
 export default function Home() {
   return (
@@ -46,6 +47,21 @@ export default function Home() {
             <span className="note-icon"><CodeIcon /></span>
             <span><strong>Full Stack Developer</strong>Flutter · React · Next.js</span>
           </div>
+        </div>
+      </section>
+
+      <section className="section shell">
+        <div className="section-heading">
+          <div>
+            <p className="kicker">Interactive Console</p>
+            <h2>Explore my sandbox environment.</h2>
+          </div>
+        </div>
+        <p className="section-copy" style={{ marginTop: "-20px", marginBottom: "20px", maxWidth: "600px" }}>
+          Type commands in the simulator below to query my credentials, list my project details, or reveal secret easter eggs.
+        </p>
+        <div style={{ maxWidth: "800px", marginInline: "auto" }}>
+          <Terminal />
         </div>
       </section>
 
